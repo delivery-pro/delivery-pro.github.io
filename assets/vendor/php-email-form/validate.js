@@ -50,11 +50,13 @@
   });
 
   function php_email_form_submit(thisForm, action, formData) {
+    console.log(action, formData)
     fetch(action + "?" + new URLSearchParams(formData), {
       method: 'GET',
       headers: {'X-Requested-With': 'XMLHttpRequest'}
     })
     .then(response => {
+      console.log(response)
       if( response.ok ) {
         return response.text()
       } else {
@@ -62,6 +64,7 @@
       }
     })
     .then(data => {
+      console.log(data)
       thisForm.querySelector('.loading').classList.remove('d-block');
       if (data.trim() == 'OK') {
         thisForm.querySelector('.sent-message').classList.add('d-block');
