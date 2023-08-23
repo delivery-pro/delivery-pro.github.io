@@ -50,9 +50,8 @@
   });
 
   function php_email_form_submit(thisForm, action, formData) {
-    fetch(action, {
+    fetch(action + "?" + new URLSearchParams(formData), {
       method: 'GET',
-      body: formData,
       headers: {'X-Requested-With': 'XMLHttpRequest'}
     })
     .then(response => {
