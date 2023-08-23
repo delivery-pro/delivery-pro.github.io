@@ -50,7 +50,6 @@
   });
 
   function php_email_form_submit(thisForm, action, formData) {
-    console.log(action, formData)
     fetch(action + "?" + new URLSearchParams(formData), {
       method: 'GET',
       headers: {'X-Requested-With': 'XMLHttpRequest'}
@@ -58,7 +57,7 @@
     .then(response => {
       console.log(response)
       if( response.ok ) {
-        return response.text()
+        return "OK"
       } else {
         throw new Error(`${response.status} ${response.statusText} ${response.url}`); 
       }
