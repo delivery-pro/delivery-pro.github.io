@@ -56,6 +56,7 @@
       headers: {'X-Requested-With': 'XMLHttpRequest'}
     })
     .then(response => {
+      console.log(response)  // TODO facciamo andare i 200 nell'if
       if( response.ok ) {
         return response.text()
       } else {
